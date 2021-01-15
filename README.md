@@ -49,7 +49,7 @@ Manually added dependecies are:
   
 
 #### 3. Correctly validate the input and return the error HTTP status code
-The bean with javax.validation.constraints.* annotations has been added to validate user inputs for properties title and price
+The bean with javax.validation.constraints.* annotations to @Entity Watch class has been added to validate user inputs for properties title and price.
 
 ```
 // Using Java annotation
@@ -60,7 +60,7 @@ The bean with javax.validation.constraints.* annotations has been added to valid
     @DecimalMin("1.00")
 	private BigDecimal price;
  ```
- @Controller class added @Valid to @RequestBody to enable validation
+ @Controller class added @Valid to @RequestBody to enable validation.
  ```
  @ResponseBody
 	public ResponseEntity<String> saveWatchJson(@Valid @RequestBody Watch watch)
@@ -71,7 +71,7 @@ Next, Created @ControllerAdvice CustomGlobalExceptionHandler.java to catch the M
 
 #### 4. Save the received data to any DB (just save the images to the DB) and return 201 CREATED
 Saving to the database is done via WatchDao Service which extends CrudRepository, CrudRepository provides sophisticated CRUD functionality for the entity class that is being managed.
-<br/>Saving watch object to the database has been tested there is Junit class TestAssignmentApplicationTests.java
+<br/>Saving watch object to the database has been tested there is Junit class TestAssignmentApplicationTests.java.
 <br/>Returning status codes is done with ResponseEntity, we can use ResponseEntity to fully configure the HTTP response.
 
 #### 5. Prepare the application to change the format of the input data simply, communication with the e-shop can switch to XML or another format (use request header)
