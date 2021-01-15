@@ -60,7 +60,7 @@ The bean with javax.validation.constraints.* annotations to @Entity Watch class 
     @DecimalMin("1.00")
 	private BigDecimal price;
  ```
- @Controller class added @Valid to @RequestBody to enable validation.
+ @Controller class, added @Valid to @RequestBody to enable validation.
  ```
  @ResponseBody
 	public ResponseEntity<String> saveWatchJson(@Valid @RequestBody Watch watch)
@@ -71,11 +71,11 @@ Next, Created @ControllerAdvice CustomGlobalExceptionHandler.java to catch the M
 
 #### 4. Save the received data to any DB (just save the images to the DB) and return 201 CREATED
 Saving to the database is done via WatchDao Service which extends CrudRepository, CrudRepository provides sophisticated CRUD functionality for the entity class that is being managed.
-<br/>Saving watch object to the database has been tested there is Junit class TestAssignmentApplicationTests.java.
+<br/>Saving watch object to the database has been tested, there is Junit class TestAssignmentApplicationTests.java which provide test cases for saving method.
 <br/>Returning status codes is done with ResponseEntity, we can use ResponseEntity to fully configure the HTTP response.
 
 #### 5. Prepare the application to change the format of the input data simply, communication with the e-shop can switch to XML or another format (use request header)
-Using consumes=MediType.All_VALUE we can change to all input formats with request header.
+Using consumes=MediType.All_VALUE we can change to any input format with request header.
  ```
 @PostMapping(value = "/saveWatch", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
  ```
